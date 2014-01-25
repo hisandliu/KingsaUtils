@@ -61,25 +61,6 @@ public class SysSettings implements Serializable {
 	}
 	
 	private Properties getProp() {
-		/*
-		String xxxx = Object.class.getResource("/").getPath();
-		System.out.println(xxxx);   
-		File file = new File("/");
-		  System.out.println(file.getPath());   
-		ClassLoader cl = getClass().getClassLoader();
-		if (cl == null) {
-			System.out.println(" getClass().getClassLoader() is null");
-			return null;
-		}
-		URL url = cl.getResource("/");
-		if (url == null) {
-			System.out.println(" getResource is null");
-		}
-		else {
-			String xx = url.getPath();
-			System.out.println(xx);
-		}
-		*/
 		Properties prop = new Properties(); 
         InputStream in = getClass().getResourceAsStream("/config.properties"); 
         try { 
