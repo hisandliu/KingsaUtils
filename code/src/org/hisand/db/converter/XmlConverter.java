@@ -17,7 +17,7 @@ public class XmlConverter implements RowConverter<String> {
 		this.itemTagname = itemTagname;
 		this.onlyFirstItem = onlyFirstItem;
 		this.onlyFirstItem = onlyFirstItem;
-		this.keys = keys;
+		//this.keys = keys;
 	}
 	
 	public XmlConverter(boolean onlyFirstItem) {
@@ -27,7 +27,7 @@ public class XmlConverter implements RowConverter<String> {
 	
 	public XmlConverter(String[] keys) {
 		super();
-		this.keys = keys;
+		//this.keys = keys;
 	}
 	
 	@Override
@@ -39,8 +39,6 @@ public class XmlConverter implements RowConverter<String> {
 	private String listTagname = "items";
 	private String itemTagname = "item";
 	private String[] cdataTags = null;
-	@SuppressWarnings("unused")
-	private String[] keys;
 	
 	private String buildXml(ResultSet rs) throws SQLException {
 		if (rs == null) return "";

@@ -28,11 +28,11 @@ public class WebCatcher {
 			in.close();
 			return sb.toString();
 		} catch (MalformedURLException e) {
-			//System.out.println("失敗！!");
-			//e.printStackTrace();
+			System.out.println("失敗！!");
+			e.printStackTrace();
 			throw e;
 		} catch (final IOException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw e;
 		}
 	}
@@ -63,10 +63,10 @@ public class WebCatcher {
 			return sb.toString();
 		} catch (MalformedURLException e) {
 			System.out.println("失敗！!");
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw e;
 		} catch (final IOException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw e;
 		}
 	}
@@ -98,10 +98,10 @@ public class WebCatcher {
 			return sb.toString();
 		} catch (MalformedURLException e) {
 			System.out.println("失敗！!");
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw e;
 		} catch (final IOException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			throw e;
 		}
 	}

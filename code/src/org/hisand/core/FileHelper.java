@@ -21,7 +21,7 @@ public class FileHelper {
 		reader.close();
 		return fileData.toString();
 	}
-	
+
 	public static String readStringFromClassFile(Class<?> clazz, String filename)
 			throws Exception {
 		try {

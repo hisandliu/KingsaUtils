@@ -129,14 +129,14 @@ public class AbstractMapDAO extends AbstractDAO {
 		return DBHelper.query(rt.conn, sql, rt.isNewconn, handler, values);
 	}
 
-	public List<Map<String, Object>> query(String sql, Object[] values)
+	protected List<Map<String, Object>> query(String sql, Object[] values)
 			throws SQLException {
 		ConnResult rt = getConnResult();
 		MapListHandler handler = new MapListHandler();
 		return DBHelper.query(rt.conn, sql, rt.isNewconn, handler, values);
 	}
 
-	public List<Map<String, Object>> query(String tablename,
+	protected List<Map<String, Object>> query(String tablename,
 			String[] fieldNames, Map<String, Object> whereItem,
 			String[] whereFields) throws SQLException {
 		StringBuffer expsb = new StringBuffer();
