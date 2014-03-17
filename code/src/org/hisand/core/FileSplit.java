@@ -1,5 +1,6 @@
 package org.hisand.core;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -90,16 +91,33 @@ public class FileSplit {
 		// String trueName = extension.replace("/", "");
 		int last = sourceFile.lastIndexOf("/");
 		String filename = sourceFile.substring(last + 1, sourceFile.length());
-		// int size = 5632 * 200;
-		// System.out.println(filename);
+
 		// available()方法可以知道文件具体有多少个字节。
 		int filelen = fis.available();
 		fis.close();
+		
+		//filelen = 9;
+		//count = 5;
+		
+		int size = 0;
+		int lastsize = 0;
+	
+//		double xsize = (double)filelen / (double)count;
+//		double xbal = xsize - Math.floor(xsize);
 
-		int size = filelen / count;
+//		if (xbal <= 0.5d) {
+//			size = filelen / count;
+//			int lv = filelen % count;
+//			lastsize = size + lv;
+//		} else {
+//			size = filelen / (count - 1);
+//			lastsize = filelen - (count - 1) * size;
+//		}
+		
+		size = filelen / count;
 		int lv = filelen % count;
-		int lastsize = size + lv;
-
+		lastsize = size + lv;
+		
 		byte[][] buf = new byte[count][size];
 		buf[count - 1] = new byte[lastsize];
 		for (int i = 0; i < count; i++) {
@@ -135,10 +153,18 @@ public class FileSplit {
 
 	public static void main(String[] args) {
 		try {
-			String sourceFile = "/work/huadict/data/cidian_sqlite/android_tw_standard/zidian_tw";
-			String targetPath = "/work/huadict/data/cidian_sqlite/android_tw_standard/split";
+			String sourceFile = "/work/huadict/data/cidian_sqlite/android_cn_standard/zidian_cn";
+			String targetPath = "/work/huadict/data/cidian_sqlite/android_cn_standard/split";
+		
+			File dir = new File(targetPath);
+			for (File file : dir.listFiles()) {
+				file.delete();
+			}
+			
 			// splitFile(sourceFile, targetPath, 1024 * 960, true);
+			
 			splitFileByCount(sourceFile, targetPath, 15);
+			System.out.println("Done!");
 		} catch (IOException e) {
 		}
 	}
