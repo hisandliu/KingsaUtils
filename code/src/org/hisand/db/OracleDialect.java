@@ -181,5 +181,7 @@ public class OracleDialect implements Dialect {
 	public String getEmptyString() {
 		return "' '";
 	}
+	
+
 
 }
