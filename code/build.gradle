@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+    manifest {
+    }
+}
+
+sourceSets {
+   main {
+      java {
+         srcDir 'src'
+      }
+   }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.sun.xml.security:xml-security-impl:1.+'
+}
+
+
+/*
+include ':module1'
+project(':module1').projectDir = new File(settingsDir, '../Project B/Module 1')
+*/
