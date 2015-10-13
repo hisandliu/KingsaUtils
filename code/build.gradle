@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.sun.xml.security:xml-security-impl:1.+'
+    compile 'com.sun.xml.security:xml-security-impl:1.0'
 }
 
 
