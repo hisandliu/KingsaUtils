@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="output" path="bin"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/hisand/.gradle/caches/modules-2/files-2.1/com.sun.xml.security/xml-security-impl/1.0/942c8022b064e4cdc93df36dd6353111d7122281/xml-security-impl-1.0.jar"/>
-</classpath>
