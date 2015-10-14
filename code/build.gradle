@@ -12,6 +12,11 @@ sourceSets {
          srcDir 'src'
       }
    }
+   test {
+      java {
+         srcDir 'test'
+      }
+   }
 }
 
 repositories {
@@ -20,6 +25,7 @@ repositories {
 
 dependencies {
     compile 'com.sun.xml.security:xml-security-impl:1.0'
+    testCompile 'junit:junit:4.11'
 }
 
 
