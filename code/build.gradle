@@ -1,6 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+def testJavaSrcDir = 'test/java'
+def testResourcesSrcDir = 'test/resources'
+
 jar {
     manifest {
     }
@@ -14,7 +17,10 @@ sourceSets {
    }
    test {
       java {
-         srcDir 'test'
+         srcDir testJavaSrcDir
+      }
+      resources {
+      	srcDir testResourcesSrcDir
       }
    }
 }
@@ -29,7 +35,25 @@ dependencies {
     testCompile 'org.mockito:mockito-core:1.9.5'
 }
 
-/*
-include ':module1'
-project(':module1').projectDir = new File(settingsDir, '../Project B/Module 1')
-*/
+eclipse.classpath.file {
+	withXml {
+        //def node = it.asNode()
+        //node.appendNode('xml', 'is what I love')
+    }
+    beforeMerged { cp ->
+        cp.entries.clear()
+    }
+    whenMerged { cp ->
+        cp.entries.each {
+        	//it instanceof org.gradle.plugins.ide.eclipse.model.SourceFolder
+        	if (it.kind == 'src' && it.path.startsWith(testJavaSrcDir)) {
+        		it.output = "build/classes/test"
+        		it.includes = ['**/*.java']
+        	}
+        	if (it.kind == 'src' && it.path.startsWith(testResourcesSrcDir)) {
+        		it.output = "build/classes/test"
+        		it.excludes = ['**/*.java']
+        	}
+        }
+    }
+}
