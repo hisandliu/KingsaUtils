@@ -1,8 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-def testJavaSrcDir = 'test/java'
-def testResourcesSrcDir = 'test/resources'
+ext {
+	testJavaSrcDir = 'test/java'
+	testResourcesSrcDir = 'test/resources'
+}
 
 jar {
     manifest {
