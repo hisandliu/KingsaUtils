@@ -24,6 +24,7 @@ sourceSets {
       resources {
       	srcDir testResourcesSrcDir
       }
+      
    }
 }
 
@@ -58,4 +59,8 @@ eclipse.classpath.file {
         	}
         }
     }
+}
+
+project.properties.each {
+	//println it.key
 }
